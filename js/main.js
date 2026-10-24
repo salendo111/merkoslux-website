@@ -90,8 +90,32 @@
     return "de";
   }
 
+  /* Sprachwechsel mit kurzer Animation – Hinweis in der Zielsprache */
+  var LANG_MSG = { de: "Sprache wird gewechselt …", fr: "Changement de langue …", lb: "Sprooch gëtt gewiesselt …", en: "Switching language …" };
+  var lfx = null, lfxBusy = false;
+  function langFx(lang) {
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce || lfxBusy) { setLang(lang); return; }
+    if (!lfx) {
+      lfx = document.createElement("div");
+      lfx.className = "lang-fx"; lfx.setAttribute("aria-hidden", "true");
+      lfx.innerHTML = '<div class="lf-in"><span class="lf-code"></span><span class="lf-msg"></span><span class="lf-bar"></span></div>';
+      document.body.appendChild(lfx);
+    }
+    lfxBusy = true;
+    lfx.querySelector(".lf-code").textContent = lang.toUpperCase();
+    lfx.querySelector(".lf-msg").textContent = LANG_MSG[lang] || LANG_MSG.de;
+    lfx.classList.remove("out"); void lfx.offsetWidth; lfx.classList.add("on");
+    setTimeout(function () { setLang(lang); }, 520);
+    setTimeout(function () { lfx.classList.add("out"); }, 1050);
+    setTimeout(function () { lfx.classList.remove("on", "out"); lfxBusy = false; }, 1600);
+  }
   document.querySelectorAll(".lang button").forEach(function (b) {
-    b.addEventListener("click", function () { setLang(b.getAttribute("data-lang")); });
+    b.addEventListener("click", function () {
+      var l = b.getAttribute("data-lang");
+      if (l === current) return;
+      langFx(l);
+    });
   });
 
   /* ===== Menü (mobil) ===== */
@@ -204,10 +228,34 @@
   });
 
   /* ===== Anfrage vorwählen: kontakt.html#anfrage-tiefbau ===== */
-  var hm = /^#anfrage-([a-z]+)$/.exec(location.hash);
-  if (hm) {
-    var chip = document.querySelector('.chips-in input[data-service="' + hm[1] + '"]');
-    if (chip) chip.checked = true;
+  /* Beim Klick auf "Anfrage zu dieser Leistung" die Leistung zusätzlich merken (falls der #-Teil verloren geht) */
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest('a[href*="#anfrage-"]');
+    if (!a) return;
+    var m = /#anfrage-([a-z]+)/.exec(a.getAttribute("href"));
+    if (m) { try { sessionStorage.setItem("mk-anfrage", m[1]); } catch (err) { /* ignorieren */ } window.MK_PICK = m[1]; }
+  }, true);
+  var pickKey = null;
+  var hm = /#anfrage-([a-z]+)/.exec(location.hash || window.MK_HASH || "");
+  if (hm) pickKey = hm[1];
+  else if (document.getElementById("contact-form")) {
+    try { pickKey = sessionStorage.getItem("mk-anfrage"); } catch (err) { pickKey = null; }
+  }
+  try { sessionStorage.removeItem("mk-anfrage"); } catch (err) { /* ignorieren */ }
+  if (pickKey) {
+    var chip = document.querySelector('.chips-in input[data-service="' + pickKey + '"]');
+    if (chip) {
+      chip.checked = true;
+      var lab = chip.closest("label");
+      var formEl = document.getElementById("contact-form");
+      var showPick = function () {
+        setTimeout(function () {
+          if (formEl) formEl.scrollIntoView({ behavior: "smooth", block: "start" });
+          if (lab) { lab.classList.add("picked"); setTimeout(function () { lab.classList.remove("picked"); }, 2600); }
+        }, 900);
+      };
+      if (document.readyState === "complete") showPick(); else window.addEventListener("load", showPick);
+    }
   }
 
   /* ===== Seitenübergang ===== */
@@ -224,7 +272,7 @@
       e.preventDefault();
       pt.classList.add("cover");
       requestAnimationFrame(function () { requestAnimationFrame(function () { pt.classList.add("go"); }); });
-      setTimeout(function () { location.href = u.href; }, 360);
+      setTimeout(function () { location.href = u.href; }, 430);
     });
     window.addEventListener("pageshow", function (e) {
       if (e.persisted) { pt.classList.remove("cover", "go"); }
@@ -250,15 +298,42 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
-  var targets = document.querySelectorAll(
-    ".framed, .lead, .stats-grid > div, .svc, .why-grid > div, .gallery li, .teaser li, .step, .value, .detail .wrap > *, .split > *, .c-info, .form, .band .wrap, .timeline li"
-  );
-  var stagger = ".stats-grid > div, .svc, .why-grid > div, .gallery li, .teaser li, .step, .value, .timeline li";
-  document.querySelectorAll(stagger).forEach(function (el) {
-    var idx = Array.prototype.indexOf.call(el.parentNode.children, el);
-    el.style.setProperty("--d", (Math.min(idx, 5) * 0.08).toFixed(2) + "s");
+  /* Scroll-Animationen: je Seite ein eigener Stil (data-rv = Art der Bewegung) */
+  var page = document.documentElement.getAttribute("data-page") || "";
+  var FX_MAP = {
+    home: [
+      [".trust-grid > div", "left", 0.1], [".stats-grid > div", "up", 0.08], [".sc", "flip", 0.09],
+      [".why4 > div", "zoom", 0.1], [".step", "up", 0.1], [".lead", "blur"], [".band .wrap", "up"]
+    ],
+    leistungen: [
+      [".detail .idx", "clip"], [".detail h2", "clip"], [".detail li", "right", 0.05],
+      [".detail .btn", "up"], [".trio .ta", "left"], [".trio .tb", "drop"], [".trio .tc", "rise"],
+      [".d-panel", "zoom"], [".band .wrap", "up"]
+    ],
+    "ueber-uns": [
+      [".split > div:first-child", "left"], [".since", "zoom"], [".value", "flip", 0.1], [".band .wrap", "up"]
+    ],
+    kontakt: [[".c-row", "left", 0.08], [".form", "right"]]
+  };
+  var targets = [];
+  (FX_MAP[page] || []).forEach(function (rule) {
+    var list = document.querySelectorAll(rule[0]);
+    list.forEach(function (el) {
+      if (el.classList.contains("reveal")) return;
+      el.classList.add("reveal");
+      el.setAttribute("data-rv", rule[1]);
+      if (rule[2]) {
+        var idx = Array.prototype.indexOf.call(el.parentNode.children, el);
+        el.style.setProperty("--d", (Math.min(idx, 10) * rule[2]).toFixed(2) + "s");
+      }
+      targets.push(el);
+    });
   });
-  targets.forEach(function (el) { if (!el.classList.contains("framed")) el.classList.add("reveal"); });
+  document.querySelectorAll(".framed").forEach(function (el) { targets.push(el); });
+  /* Leistungen: Bilder einer Komposition nacheinander */
+  document.querySelectorAll(".trio").forEach(function (t) {
+    ["ta", "tb", "tc"].forEach(function (c, k) { var im = t.querySelector("." + c); if (im) im.style.setProperty("--d", (k * 0.18).toFixed(2) + "s"); });
+  });
 
   /* Zahlen hochzählen */
   function countUp(el) {

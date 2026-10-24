@@ -2,7 +2,7 @@
 
 Statische Seite für GitHub Pages (+ Cloudflare). Kein Build nötig: Ordnerinhalt ins Repository legen, fertig.
 
-Seiten: index, leistungen, projekte, ueber-uns, kontakt, impressum, datenschutz.
+Seiten: index, leistungen, ueber-uns, kontakt, impressum, datenschutz.
 Sprachen: DE (im HTML), FR/LB/EN in `js/i18n.js`. Die Übersetzungen sind von Claude und sollten von Muttersprachlern gegengelesen werden (besonders Luxemburgisch).
 
 ## Noch offen (gelb markiert in Impressum/Datenschutz bzw. in `js/main.js`)

@@ -9,7 +9,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Merkoslux – Bauunternehmen Luxemburg und Hamburg">
 <meta property="og:description" content="Merkoslux: Neubau, Renovierung, Erdarbeiten, Außenanlagen, Abdichtung und Reinigung aus Luxemburg. Tätig in Luxemburg und Deutschland. Seit 2013.">
-<meta property="og:image" content="img/neubau-1.jpg">
+<meta property="og:image" content="img/haus-1.jpg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="64x64" href="favicon-64.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -24,7 +24,8 @@
   "name": "Merkoslux",
   "founder": { "@type": "Person", "name": "Mersudin Isovic" },
   "foundingDate": "2013",
-  "telephone": "+352621270220",
+  "telephone": ["+352621270220", "+4915233616554"],
+  "email": "info@merkoslux.com",
   "address": { "@type": "PostalAddress", "streetAddress": "15 Bei Janessen", "postalCode": "L-9835", "addressLocality": "Hoscheid-Dickt", "addressCountry": "LU" },
   "areaServed": ["Luxembourg", "Hamburg", "Germany"],
   "knowsLanguage": ["de", "fr", "lb", "en"],
@@ -35,35 +36,37 @@
 <body>
 <a class="skip" href="#main" data-i18n="skip">Zum Inhalt springen</a>
 <div class="topbar"><div class="wrap">
-  <ul><li>15, Bei Janessen, L-9835 Hoscheid-Dickt</li><li><a href="tel:+352621270220">Tel. +352 621 270 220</a></li></ul>
-  <span class="em" data-i18n="tb.area">Luxemburg &amp; Deutschland, Schwerpunkt Hamburg</span>
+  <ul><li>15, Bei Janessen, L-9835 Hoscheid-Dickt</li><li><a href="tel:+352621270220">LU +352 621 270 220</a></li><li><a href="tel:+4915233616554">DE +49 152 33616554</a></li><li><a href="mailto:info@merkoslux.com">info@merkoslux.com</a></li></ul>
+  <span class="em" data-i18n="tb.area">Luxemburg · Hamburg und Umgebung</span>
 </div></div>
 <header class="site-header">
   <div class="wrap header-row">
-    <a class="brand" href="index.html" aria-label="Merkoslux"><img src="img/logo.png" alt="Merkoslux" width="900" height="147"></a>
+    <a class="brand" href="index.html" aria-label="Merkoslux"><img src="img/logo.png" alt="Merkoslux" width="960" height="163"></a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menü"><span></span><span></span><span></span></button>
     <nav id="nav" class="nav" aria-label="Hauptmenü">
-      <a href="index.html" aria-current="page" data-i18n="nav.home">Start</a><a href="leistungen.html" data-i18n="nav.services">Leistungen</a><a href="projekte.html" data-i18n="nav.projects">Projekte</a><a href="ueber-uns.html" data-i18n="nav.about">Über uns</a><a href="kontakt.html" data-i18n="nav.contact">Kontakt</a>
+      <a href="index.html" aria-current="page" data-i18n="nav.home">Start</a><a href="leistungen.html" data-i18n="nav.services">Leistungen</a><a href="ueber-uns.html" data-i18n="nav.about">Über uns</a><a href="kontakt.html" data-i18n="nav.contact">Kontakt</a>
       <div class="lang" role="group" aria-label="Sprache">
         <button type="button" data-lang="de" aria-pressed="true">DE</button><button type="button" data-lang="fr" aria-pressed="false">FR</button><button type="button" data-lang="lb" aria-pressed="false">LB</button><button type="button" data-lang="en" aria-pressed="false">EN</button>
       </div>
-      <a class="btn btn-lime nav-call" href="tel:+352621270220"><span data-i18n="cta.call">Anrufen</span></a>
+      <a class="btn btn-lime nav-call nav-quote" href="kontakt.html"><span data-i18n="nav.quote">Angebot</span></a>
     </nav>
   </div>
 </header>
-<div class="pt pt-up" aria-hidden="true"><span class="pt-bar"></span><img src="img/icon.png" alt=""></div>
+<div class="pt pt-home" aria-hidden="true"><span class="pt-s"></span><span class="pt-s"></span><span class="pt-bar"></span><img src="img/icon.png" alt=""></div>
 
 <main id="main" data-fx="up">
   <section class="hero" id="top">
-    <div class="hero-media is-video" aria-hidden="true"><video autoplay muted loop playsinline preload="auto" poster="img/hero-poster.jpg"><source src="img/hero-720.webm" type="video/webm" media="(max-width: 900px)"><source src="img/hero-720.mp4" type="video/mp4" media="(max-width: 900px)"><source src="img/hero.webm" type="video/webm"><source src="img/hero.mp4" type="video/mp4"></video></div>
-    <div class="wrap">
+    <div class="wrap hero-split">
+      <div class="hero-copy">
       <p class="kicker" data-i18n="hero.kicker">Bauen · Renovieren · Gestalten</p>
       <h1 class="framed"><span data-i18n="hero.title">Ihre Vision – unsere Arbeit.</span></h1>
-      <p class="hero-text" data-i18n="hero.text">Wir realisieren Ihre Projekte in Bau, Renovierung und Außenanlagen – zuverlässig, termingerecht und mit höchstem Anspruch an Qualität. In Luxemburg und Deutschland.</p>
+      <p class="hero-text" data-i18n="hero.text">Wir realisieren Ihre Projekte in Bau, Renovierung und Außenanlagen – zuverlässig, termingerecht und mit höchstem Anspruch an Qualität. In Luxemburg sowie in Hamburg und Umgebung.</p>
       <div class="hero-actions">
         <a class="btn btn-lime" href="kontakt.html" data-i18n="hero.cta1">Anfrage senden</a>
         <a class="btn btn-ghost" href="leistungen.html" data-i18n="hero.cta2">Leistungen ansehen</a>
       </div>
+      </div>
+      <figure class="hero-pic" aria-hidden="true"><span class="hp-in"><img src="img/haus-1.webp" alt="" style="--i:0" width="936" height="702"><img src="img/haus-2.webp" alt="" style="--i:1" width="936" height="702"><img src="img/haus-3.webp" alt="" style="--i:2" width="936" height="702"><img src="img/haus-4.webp" alt="" style="--i:3" width="936" height="702"></span><span class="hp-dots"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i></span></figure>
     </div>
     <span class="scrollcue" aria-hidden="true"></span>
   </section>
@@ -77,38 +80,38 @@
       <div class="sec-head"><span class="eyebrow" data-i18n="sv.eyebrow">Unsere Leistungen</span><h2 class="framed"><span data-i18n="sv.h2">Kompetenz in allen Bereichen des Bauens</span></h2></div>
       <p class="lead" data-i18n="sv.lead">Von den Erdarbeiten über Neubau und Renovierung bis zu Außenanlagen, Abdichtung und Reinigung: alles aus einer Hand, mit einem festen Ansprechpartner.</p>
       <div class="sc-grid">
-      <a class="sc" href="leistungen.html#neubau">
-        <span class="sc-img"><img src="img/neubau-1.webp" alt="" loading="lazy" width="1400" height="1050"></span>
+      <a class="sc sc-text" href="leistungen.html#neubau">
+        <span class="sc-num">01</span>
         <span class="sc-body"><h3 data-i18n="v1.h">Neubau &amp; Rohbau</h3>
         <p data-i18n="v1.t">Schlüsselfertige Lösungen für Ihr Zuhause oder Gewerbeobjekt – von der Grundmauer bis zum Dach.</p>
         <span class="more" data-i18n="sv.more">Mehr erfahren</span></span>
       </a>
-<a class="sc" href="leistungen.html#renovierung">
-        <span class="sc-img"><img src="img/dachgeschoss.webp" alt="" loading="lazy" width="1400" height="1050"></span>
+<a class="sc sc-text" href="leistungen.html#renovierung">
+        <span class="sc-num">02</span>
         <span class="sc-body"><h3 data-i18n="v2.h">Renovierung &amp; Modernisierung</h3>
         <p data-i18n="v2.t">Aus Alt wird Neu: Modernisierung, Umbau und Sanierung bestehender Häuser und Wohnungen.</p>
         <span class="more" data-i18n="sv.more">Mehr erfahren</span></span>
       </a>
-<a class="sc" href="leistungen.html#erdbau">
-        <span class="sc-img"><img src="img/baugrube-bagger.webp" alt="" loading="lazy" width="1400" height="1050"></span>
+<a class="sc sc-text" href="leistungen.html#erdbau">
+        <span class="sc-num">03</span>
         <span class="sc-body"><h3 data-i18n="v3.h">Erdarbeiten &amp; Tiefbau</h3>
         <p data-i18n="v3.t">Aushub, Gräben und tragfähiger Unterbau – das Fundament für alles, was darauf entsteht.</p>
         <span class="more" data-i18n="sv.more">Mehr erfahren</span></span>
       </a>
-<a class="sc" href="leistungen.html#aussenanlagen">
-        <span class="sc-img"><img src="img/pflaster-einfahrt.webp" alt="" loading="lazy" width="1400" height="1050"></span>
+<a class="sc sc-text" href="leistungen.html#aussenanlagen">
+        <span class="sc-num">04</span>
         <span class="sc-body"><h3 data-i18n="v4.h">Außenanlagen &amp; Pflaster</h3>
         <p data-i18n="v4.t">Einfahrten, Wege, Terrassen und Gärten – hochwertig gestaltet und dauerhaft angelegt.</p>
         <span class="more" data-i18n="sv.more">Mehr erfahren</span></span>
       </a>
-<a class="sc" href="leistungen.html#abdichtung">
-        <span class="sc-img"><img src="img/abdichtung-sockel.webp" alt="" loading="lazy" width="1400" height="1050"></span>
+<a class="sc sc-text" href="leistungen.html#abdichtung">
+        <span class="sc-num">05</span>
         <span class="sc-body"><h3 data-i18n="v5.h">Abdichtung &amp; Drainage</h3>
         <p data-i18n="v5.t">Schutz Ihres Gebäudes vor Feuchtigkeit und Wasser – fachgerecht und langlebig.</p>
         <span class="more" data-i18n="sv.more">Mehr erfahren</span></span>
       </a>
-<a class="sc" href="leistungen.html#reinigung">
-        <span class="sc-img"><span class="sc-panel"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 8C26 18 20 26 20 34a12 12 0 0 0 24 0C44 26 38 18 32 8z"/><path d="M26 36a6 6 0 0 0 6 6"/><path d="M50 12v8M46 16h8M14 20v6M11 23h6"/></svg></span></span>
+<a class="sc sc-text" href="leistungen.html#reinigung">
+        <span class="sc-num">06</span>
         <span class="sc-body"><h3 data-i18n="v6.h">Reinigung &amp; Objektpflege</h3>
         <p data-i18n="v6.t">Terrassen, Fassaden, Dächer und Außenanlagen wieder wie neu – plus regelmäßige Betreuung Ihrer Objekte.</p>
         <span class="more" data-i18n="sv.more">Mehr erfahren</span></span>
@@ -124,20 +127,6 @@
     </div>
   </section>
 
-  <section class="section section-alt">
-    <div class="wrap">
-      <div class="sec-head"><span class="eyebrow" data-i18n="pj.eyebrow">Referenzen</span><h2 class="framed"><span data-i18n="pj.h2">Aus unseren Baustellen</span></h2></div>
-      <ul class="teaser">
-      <li><a href="projekte.html"><img src="img/terrasse-fertig.webp" alt="" loading="lazy" width="1400" height="1050"><span data-i18n="p22">Fertige Terrasse in Großformat-Platten</span></a></li>
-      <li><a href="projekte.html"><img src="img/baugrube-bagger.webp" alt="" loading="lazy" width="1400" height="1050"><span data-i18n="p5">Baugrube mit Raupenbagger</span></a></li>
-      <li><a href="projekte.html"><img src="img/pflaster-anthrazit.webp" alt="" loading="lazy" width="1400" height="1050"><span data-i18n="p10">Pflaster in Anthrazit mit Einfassung</span></a></li>
-      <li><a href="projekte.html"><img src="img/dachgeschoss.webp" alt="" loading="lazy" width="1400" height="1050"><span data-i18n="p18">Ausgebautes Dachgeschoss mit Dachfenster</span></a></li>
-      <li><a href="projekte.html"><img src="img/graben-rohre.webp" alt="" loading="lazy" width="1400" height="1050"><span data-i18n="p8">Rohre im Graben, gebettet in Sand</span></a></li>
-      <li><a href="projekte.html"><img src="img/rasengitter.webp" alt="" loading="lazy" width="1400" height="1050"><span data-i18n="p14">Rasengitter-Zufahrt, fertig verlegt</span></a></li>
-      </ul>
-      <p class="center"><a class="btn btn-dark2" href="projekte.html" data-i18n="pj.more">Alle Projekte ansehen</a></p>
-    </div>
-  </section>
 
   <section class="section">
     <div class="wrap">
@@ -148,7 +137,7 @@
 
   <section class="band"><div class="wrap">
   <h2 data-i18n="band.h">Sie planen ein Projekt? Sprechen Sie uns an.</h2>
-  <div class="actions"><a class="btn btn-dark" href="kontakt.html"><span data-i18n="sv.band.cta">Kostenloses Angebot</span></a><a class="btn btn-line" href="tel:+352621270220">+352 621 270 220</a></div>
+  <div class="actions"><a class="btn btn-dark btn-shine" href="kontakt.html"><span data-i18n="sv.band.cta">Kostenloses Angebot</span></a><a class="btn btn-line" href="tel:+352621270220">LU +352 621 270 220</a><a class="btn btn-line" href="tel:+4915233616554">DE +49 152 33616554</a></div>
 </div></section>
 
 </main>
@@ -156,11 +145,12 @@
 <footer class="site-footer">
   <div class="wrap">
     <div class="f-top">
-      <img class="footer-logo" src="img/logo.png" alt="Merkoslux" width="900" height="147" style="height:34px;width:auto">
+      <img class="footer-logo" src="img/logo.png" alt="Merkoslux" width="960" height="163" style="height:34px;width:auto">
       <dl class="f-info">
-        <div><dt data-i18n="ct.phone">Telefon</dt><dd><a href="tel:+352621270220">+352 621 270 220</a></dd></div>
+        <div><dt data-i18n="ct.phone">Telefon</dt><dd>LU <a href="tel:+352621270220">+352 621 270 220</a><br>DE <a href="tel:+4915233616554">+49 152 33616554</a></dd></div>
         <div><dt data-i18n="ct.addr">Adresse</dt><dd>15, Bei Janessen<br>L-9835 Hoscheid-Dickt<br>Luxembourg</dd></div>
-        <div><dt data-i18n="ct.hours">Erreichbar</dt><dd data-i18n="ct.hours.v">Montag bis Freitag, 8 bis 16 Uhr</dd></div>
+        <div><dt data-i18n="fm.mail">E-Mail</dt><dd><a href="mailto:info@merkoslux.com">info@merkoslux.com</a></dd></div>
+        <div><dt data-i18n="ct.hours">Erreichbarkeit</dt><dd data-i18n="ct.hours.v">Montag bis Freitag, 8 bis 16 Uhr</dd></div>
         <div><dt data-i18n="ct.person">Ansprechpartner</dt><dd>Mersudin Isovic</dd></div>
       </dl>
     </div>
@@ -174,7 +164,11 @@
   </div>
 </footer>
 <div class="float" aria-label="Schnellkontakt">
-  <a href="tel:+352621270220" aria-label="Anrufen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 013 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg></a>
+  <span class="fl-h">LU</span><span class="fl-h">DE</span>
+  <a class="wa" href="https://wa.me/352621270220" target="_blank" rel="noopener" aria-label="WhatsApp Luxemburg +352 621 270 220"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.8 11.9 11.9 0 004.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 001.8-1.3 2.3 2.3 0 00.2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg></a>
+  <a class="wa" href="https://wa.me/4915233616554" target="_blank" rel="noopener" aria-label="WhatsApp Deutschland +49 152 33616554"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.8 11.9 11.9 0 004.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 001.8-1.3 2.3 2.3 0 00.2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg></a>
+  <a class="tel" href="tel:+352621270220" aria-label="Anrufen Luxemburg +352 621 270 220"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 013 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg></a>
+  <a class="tel" href="tel:+4915233616554" aria-label="Anrufen Deutschland +49 152 33616554"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 013 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg></a>
 </div>
 <dialog id="lightbox" aria-label="Bildansicht"><button type="button" class="lb-close" aria-label="Schließen">×</button><img alt=""></dialog>
 <script src="js/i18n.js"></script>
