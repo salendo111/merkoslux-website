@@ -350,15 +350,29 @@
   }
 
   if ("IntersectionObserver" in window) {
+    /* Elemente, die anfangs komplett weggeschnitten sind (data-rv="clip"), erkennt der Browser nicht als sichtbar.
+       Für sie wird deshalb das umgebende, sichtbare Element beobachtet. */
+    var proxy = new Map();
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (!en.isIntersecting) return;
-        en.target.classList.add("in");
-        en.target.querySelectorAll("[data-count]").forEach(countUp);
+        var list = proxy.get(en.target) || [en.target];
+        list.forEach(function (el) {
+          el.classList.add("in");
+          el.querySelectorAll("[data-count]").forEach(countUp);
+        });
         io.unobserve(en.target);
       });
     }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
-    targets.forEach(function (el) { io.observe(el); });
+    targets.forEach(function (el) {
+      if (el.getAttribute("data-rv") === "clip" && el.parentElement) {
+        var host = el.parentElement;
+        if (!proxy.has(host)) { proxy.set(host, []); io.observe(host); }
+        proxy.get(host).push(el);
+      } else {
+        io.observe(el);
+      }
+    });
   } else {
     targets.forEach(function (el) { el.classList.add("in"); });
     document.querySelectorAll("[data-count]").forEach(countUp);
