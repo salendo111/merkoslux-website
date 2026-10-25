@@ -268,8 +268,10 @@
       if (a.target && a.target !== "_self") return;
       var u;
       try { u = new URL(a.href, location.href); } catch (err) { return; }
-      if (u.origin !== location.origin || !/\.html?$|\/$/.test(u.pathname)) return;
-      if (u.pathname === location.pathname) return;
+      if (u.origin !== location.origin) return;
+      if (/\.[a-z0-9]+$/i.test(u.pathname) && !/\.html?$/i.test(u.pathname)) return; /* Dateien (PDF, Bilder) normal öffnen */
+      var norm = function (x) { return x.replace(/\.html?$/, "").replace(/\/index$/, "/"); };
+      if (norm(u.pathname) === norm(location.pathname)) return;
       e.preventDefault();
       pt.classList.add("cover");
       requestAnimationFrame(function () { requestAnimationFrame(function () { pt.classList.add("go"); }); });
@@ -292,7 +294,7 @@
       var max = document.documentElement.scrollHeight - window.innerHeight;
       header.classList.toggle("scrolled", y > 8);
       header.style.setProperty("--p", max > 0 ? Math.min(1, y / max).toFixed(4) : 0);
-      if (floatBox) floatBox.classList.toggle("show", y > 500);
+      if (floatBox) floatBox.classList.add("show");
       ticking = false;
     });
   }
