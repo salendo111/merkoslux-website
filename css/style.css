@@ -845,3 +845,25 @@ html, body { overflow-x: clip; }
 
 /* Hero: Video "Vom Plan zum Haus" */
 .hp-in .hp-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: #1e232a; }
+
+/* ===== Hero: Video groß, randlos rechts (PC) bzw. volle Breite (Handy) ===== */
+.hero-pic::before, .hero-pic::after { display: none; }
+.hp-in { box-shadow: none; }
+@media (min-width: 961px) {
+  .hero { min-height: clamp(560px, calc(100vh - 110px), 820px); display: flex; align-items: center; padding-block: clamp(64px, 8vw, 110px); }
+  .hero > .wrap { width: 100%; }
+  .hero-split { grid-template-columns: minmax(0, 46%) minmax(0, 1fr); }
+  .hero-copy { position: relative; z-index: 2; }
+  .hero-pic { position: absolute; top: 0; right: 0; bottom: 0; left: calc(50% - 90px); width: auto; margin: 0; aspect-ratio: auto; z-index: 0; }
+  .hp-in { background: transparent;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.6) 12%, #000 26%);
+            mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.6) 12%, #000 26%); }
+  .hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 90px; z-index: 1; pointer-events: none;
+    background: linear-gradient(transparent, rgba(35,40,42,.55)); }
+}
+@media (max-width: 960px) {
+  .hero-split { display: flex; flex-direction: column; }
+  .hero-split { align-items: stretch; }
+  .hero-pic { order: -1; align-self: stretch; width: auto; margin: 0 calc(-1 * var(--gutter)) 28px; aspect-ratio: 4 / 3; }
+  .hero { padding-top: 0; }
+}
