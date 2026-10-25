@@ -6,13 +6,13 @@
      Kontaktformular: Adresse eines Formular-Dienstes eintragen (z. B. Formspree oder Web3Forms).
      Solange das Feld leer ist, zeigt das Formular einen Hinweis mit der Telefonnummer. */
   var CONFIG = {
-    formEndpoint: "",          // z. B. "https://formspree.io/f/xxxxxxxx" oder "https://api.web3forms.com/submit"
-    formAccessKey: ""          // nur für Web3Forms nötig
+    formEndpoint: "https://api.web3forms.com/submit",   // Web3Forms
+    formAccessKey: "375376f7-ebc1-4cfe-a528-3b6c3cc1e77e" // öffentlicher Schlüssel, angelegt für info@merkoslux.com
   };
 
   var DE_MSG = {
     "form.ok": "Danke, Ihre Anfrage wurde gesendet. Wir melden uns bald bei Ihnen.",
-    "form.err": "Das Senden hat nicht geklappt. Bitte rufen Sie uns an: +352 621 270 220.",
+    "form.err": "Das Senden hat nicht geklappt. Bitte rufen Sie uns an (+352 621 270 220 / +49 152 33616554) oder schreiben Sie an info@merkoslux.com.",
     "form.invalid": "Bitte geben Sie Ihren Namen und Ihre Nachricht an und bestätigen Sie die Datenschutzerklärung.",
     "form.contact": "Bitte geben Sie eine Telefonnummer oder E-Mail-Adresse an, damit wir antworten können."
   };
@@ -194,19 +194,20 @@
       if (!CONFIG.formEndpoint) { say(t("form.err"), "err"); return; }
 
       var data = new FormData(form);
-      data.append("leistungen", picked.join(", "));
-      data.append("sprache", current);
-      data.append("_subject", "Anfrage über die Merkoslux-Website");
-      if (CONFIG.formAccessKey) {
-        data.append("access_key", CONFIG.formAccessKey);
-        data.append("subject", "Anfrage über die Merkoslux-Website");
-      }
+      data.delete("website");
+      data.append("leistungen", picked.length ? picked.join(", ") : "–");
+      data.append("sprache", current.toUpperCase());
+      data.append("access_key", CONFIG.formAccessKey);
+      data.append("subject", "Neue Anfrage über merkoslux.com" + (name.value.trim() ? " – " + name.value.trim() : ""));
+      data.append("from_name", "Merkoslux Website");
+      if (mail.value.trim()) data.append("replyto", mail.value.trim());
 
       var btn = form.querySelector('button[type="submit"]');
       btn.disabled = true;
       fetch(CONFIG.formEndpoint, { method: "POST", body: data, headers: { "Accept": "application/json" } })
-        .then(function (r) {
-          if (!r.ok) throw new Error("HTTP " + r.status);
+        .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, j: j }; }); })
+        .then(function (res) {
+          if (!res.ok || res.j.success === false) throw new Error("Senden fehlgeschlagen");
           form.reset();
           say(t("form.ok"), "ok");
         })
