@@ -378,5 +378,9 @@
     document.querySelectorAll("[data-count]").forEach(countUp);
   }
 
+  /* Hero-Video sicher starten (manche Browser brauchen einen Anstoß) */
+  var hv = document.querySelector(".hp-video");
+  if (hv) { hv.muted = true; var pr = hv.play(); if (pr && pr.catch) pr.catch(function () { /* Poster bleibt sichtbar */ }); }
+
   setLang(detectLang());
 })();

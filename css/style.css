@@ -842,3 +842,6 @@ html, body { overflow-x: clip; }
 @media (max-width: 860px) {
   .page-hero svg.art { width: 100%; height: 100%; top: 0; right: 0; opacity: .18; }
 }
+
+/* Hero: Video "Vom Plan zum Haus" */
+.hp-in .hp-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: #1e232a; }
