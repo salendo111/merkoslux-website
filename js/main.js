@@ -82,11 +82,8 @@
     if (q && LANGS.indexOf(q) !== -1) return q;
     var saved = safeGet("merkoslux-lang");
     if (saved && LANGS.indexOf(saved) !== -1) return saved;
-    var prefs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || "de"];
-    for (var i = 0; i < prefs.length; i++) {
-      var p = String(prefs[i]).toLowerCase().slice(0, 2);
-      if (LANGS.indexOf(p) !== -1) return p;
-    }
+    /* Standard ist immer Deutsch – keine automatische Umstellung nach Browsersprache
+       (sonst sieht z. B. Google, das mit englischem Browser liest, die englische Fassung). */
     return "de";
   }
 
