@@ -1,9 +1,137 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://merkoslux.com/</loc></url>
-  <url><loc>https://merkoslux.com/leistungen</loc></url>
-  <url><loc>https://merkoslux.com/ueber-uns</loc></url>
-  <url><loc>https://merkoslux.com/kontakt</loc></url>
-  <url><loc>https://merkoslux.com/impressum</loc></url>
-  <url><loc>https://merkoslux.com/datenschutz</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<url>
+<loc>https://merkoslux.com/</loc>
+<xhtml:link rel="alternate" hreflang="de" href="https://merkoslux.com/"/>
+<xhtml:link rel="alternate" hreflang="fr" href="https://merkoslux.com/fr/"/>
+<xhtml:link rel="alternate" hreflang="lb" href="https://merkoslux.com/lb/"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://merkoslux.com/en/"/>
+<xhtml:link rel="alternate" hreflang="x-default" href="https://merkoslux.com/en/"/>
+</url>
+<url>
+<loc>https://merkoslux.com/fr/</loc>
+<xhtml:link rel="alternate" hreflang="de" href="https://merkoslux.com/"/>
+<xhtml:link rel="alternate" hreflang="fr" href="https://merkoslux.com/fr/"/>
+<xhtml:link rel="alternate" hreflang="lb" href="https://merkoslux.com/lb/"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://merkoslux.com/en/"/>
+<xhtml:link rel="alternate" hreflang="x-default" href="https://merkoslux.com/en/"/>
+</url>
+<url>
+<loc>https://merkoslux.com/lb/</loc>
+<xhtml:link rel="alternate" hreflang="de" href="https://merkoslux.com/"/>
+<xhtml:link rel="alternate" hreflang="fr" href="https://merkoslux.com/fr/"/>
+<xhtml:link rel="alternate" hreflang="lb" href="https://merkoslux.com/lb/"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://merkoslux.com/en/"/>
+<xhtml:link rel="alternate" hreflang="x-default" href="https://merkoslux.com/en/"/>
+</url>
+<url>
+<loc>https://merkoslux.com/en/</loc>
+<xhtml:link rel="alternate" hreflang="de" href="https://merkoslux.com/"/>
+<xhtml:link rel="alternate" hreflang="fr" href="https://merkoslux.com/fr/"/>
+<xhtml:link rel="alternate" hreflang="lb" href="https://merkoslux.com/lb/"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://merkoslux.com/en/"/>
+<xhtml:link rel="alternate" hreflang="x-default" href="https://merkoslux.com/en/"/>
+</url>
+<url>
+<loc>https://merkoslux.com/leistungen</loc>
+<xhtml:link rel="alternate" hreflang="de" href="https://merkoslux.com/leistungen"/>
+<xhtml:link rel="alternate" hreflang="fr" href="https://merkoslux.com/fr/leistungen"/>
+<xhtml:link rel="alternate" hreflang="lb" href="https://merkoslux.com/lb/leistungen"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://merkoslux.com/en/leistungen"/>
+<xhtml:link rel="alternate" hreflang="x-default" href="https://merkoslux.com/en/leistungen"/>
+</url>
+<url>
+<loc>https://merkoslux.com/fr/leistungen</loc>
+<xhtml:link rel="alternate" hreflang="de" href="https://merkoslux.com/leistungen"/>
+<xhtml:link rel="alternate" hreflang="fr" href="https://merkoslux.com/fr/leistungen"/>
+<xhtml:link rel="alternate" hreflang="lb" href="https://merkoslux.com/lb/leistungen"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://merkoslux.com/en/leistungen"/>
+<xhtml:link rel="alternate" hreflang="x-default" href="https://merkoslux.com/en/leistungen"/>
+</url>
+<url>
+<loc>https://merkoslux.com/lb/leistungen</loc>
+<xhtml:link rel="alternate" hreflang="de" href="https://merkoslux.com/leistungen"/>
+<xhtml:link rel="alternate" hreflang="fr" href="https://merkoslux.com/fr/leistungen"/>
+<xhtml:link rel="alternate" hreflang="lb" href="https://merkoslux.com/lb/leistungen"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://merkoslux.com/en/leistungen"/>
+<xhtml:link rel="alternate" hreflang="x-default" href="https://merkoslux.com/en/leistungen"/>
+</url>
+<url>
+<loc>https://merkoslux.com/en/leistungen</loc>
+<xhtml:link rel="alternate" hreflang="de" href="https://merkoslux.com/leistungen"/>
+<xhtml:link rel="alternate" hreflang="fr" href="https://merkoslux.com/fr/leistungen"/>
+<xhtml:link rel="alternate" hreflang="lb" href="https://merkoslux.com/lb/leistungen"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://merkoslux.com/en/leistungen"/>
+<xhtml:link rel="alternate" hreflang="x-default" href="https://merkoslux.com/en/leistungen"/>
+</url>
+<url>
+<loc>https://merkoslux.com/ueber-uns</loc>
+<xhtml:link rel="alternate" hreflang="de" href="https://merkoslux.com/ueber-uns"/>
+<xhtml:link rel="alternate" hreflang="fr" href="https://merkoslux.com/fr/ueber-uns"/>
+<xhtml:link rel="alternate" hreflang="lb" href="https://merkoslux.com/lb/ueber-uns"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://merkoslux.com/en/ueber-uns"/>
+<xhtml:link rel="alternate" hreflang="x-default" href="https://merkoslux.com/en/ueber-uns"/>
+</url>
+<url>
+<loc>https://merkoslux.com/fr/ueber-uns</loc>
+<xhtml:link rel="alternate" hreflang="de" href="https://merkoslux.com/ueber-uns"/>
+<xhtml:link rel="alternate" hreflang="fr" href="https://merkoslux.com/fr/ueber-uns"/>
+<xhtml:link rel="alternate" hreflang="lb" href="https://merkoslux.com/lb/ueber-uns"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://merkoslux.com/en/ueber-uns"/>
+<xhtml:link rel="alternate" hreflang="x-default" href="https://merkoslux.com/en/ueber-uns"/>
+</url>
+<url>
+<loc>https://merkoslux.com/lb/ueber-uns</loc>
+<xhtml:link rel="alternate" hreflang="de" href="https://merkoslux.com/ueber-uns"/>
+<xhtml:link rel="alternate" hreflang="fr" href="https://merkoslux.com/fr/ueber-uns"/>
+<xhtml:link rel="alternate" hreflang="lb" href="https://merkoslux.com/lb/ueber-uns"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://merkoslux.com/en/ueber-uns"/>
+<xhtml:link rel="alternate" hreflang="x-default" href="https://merkoslux.com/en/ueber-uns"/>
+</url>
+<url>
+<loc>https://merkoslux.com/en/ueber-uns</loc>
+<xhtml:link rel="alternate" hreflang="de" href="https://merkoslux.com/ueber-uns"/>
+<xhtml:link rel="alternate" hreflang="fr" href="https://merkoslux.com/fr/ueber-uns"/>
+<xhtml:link rel="alternate" hreflang="lb" href="https://merkoslux.com/lb/ueber-uns"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://merkoslux.com/en/ueber-uns"/>
+<xhtml:link rel="alternate" hreflang="x-default" href="https://merkoslux.com/en/ueber-uns"/>
+</url>
+<url>
+<loc>https://merkoslux.com/kontakt</loc>
+<xhtml:link rel="alternate" hreflang="de" href="https://merkoslux.com/kontakt"/>
+<xhtml:link rel="alternate" hreflang="fr" href="https://merkoslux.com/fr/kontakt"/>
+<xhtml:link rel="alternate" hreflang="lb" href="https://merkoslux.com/lb/kontakt"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://merkoslux.com/en/kontakt"/>
+<xhtml:link rel="alternate" hreflang="x-default" href="https://merkoslux.com/en/kontakt"/>
+</url>
+<url>
+<loc>https://merkoslux.com/fr/kontakt</loc>
+<xhtml:link rel="alternate" hreflang="de" href="https://merkoslux.com/kontakt"/>
+<xhtml:link rel="alternate" hreflang="fr" href="https://merkoslux.com/fr/kontakt"/>
+<xhtml:link rel="alternate" hreflang="lb" href="https://merkoslux.com/lb/kontakt"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://merkoslux.com/en/kontakt"/>
+<xhtml:link rel="alternate" hreflang="x-default" href="https://merkoslux.com/en/kontakt"/>
+</url>
+<url>
+<loc>https://merkoslux.com/lb/kontakt</loc>
+<xhtml:link rel="alternate" hreflang="de" href="https://merkoslux.com/kontakt"/>
+<xhtml:link rel="alternate" hreflang="fr" href="https://merkoslux.com/fr/kontakt"/>
+<xhtml:link rel="alternate" hreflang="lb" href="https://merkoslux.com/lb/kontakt"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://merkoslux.com/en/kontakt"/>
+<xhtml:link rel="alternate" hreflang="x-default" href="https://merkoslux.com/en/kontakt"/>
+</url>
+<url>
+<loc>https://merkoslux.com/en/kontakt</loc>
+<xhtml:link rel="alternate" hreflang="de" href="https://merkoslux.com/kontakt"/>
+<xhtml:link rel="alternate" hreflang="fr" href="https://merkoslux.com/fr/kontakt"/>
+<xhtml:link rel="alternate" hreflang="lb" href="https://merkoslux.com/lb/kontakt"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://merkoslux.com/en/kontakt"/>
+<xhtml:link rel="alternate" hreflang="x-default" href="https://merkoslux.com/en/kontakt"/>
+</url>
+<url>
+<loc>https://merkoslux.com/impressum</loc>
+</url>
+<url>
+<loc>https://merkoslux.com/datenschutz</loc>
+</url>
 </urlset>
