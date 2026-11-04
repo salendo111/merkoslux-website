@@ -75,11 +75,44 @@
       b.setAttribute("aria-pressed", b.getAttribute("data-lang") === lang ? "true" : "false");
     });
     safeSet("merkoslux-lang", lang);
+if (!hasLangUrl) localizeLinks(lang);
   }
 
-  function detectLang() {
-    var q = new URLSearchParams(location.search).get("lang");
-    if (q && LANGS.indexOf(q) !== -1) return q;
+  /* Jede Sprache hat auf den Hauptseiten eine eigene Adresse: /, /fr/, /lb/, /en/.
+   Dort steht die Sprache fest in der URL. Impressum und Datenschutz gibt es nur einmal. */
+var hasLangUrl = ["home", "leistungen", "ueber-uns", "kontakt"].indexOf(document.documentElement.getAttribute("data-page")) !== -1;
+function urlLang() {
+var m = /^\/(fr|lb|en)(\/|$)/.exec(location.pathname);
+return m ? m[1] : "de";
+}
+function langUrl(lang) {
+var path = location.pathname.replace(/^\/(fr|lb|en)(\/|$)/, "/");
+return (lang === "de" ? "" : "/" + lang) + path + location.hash;
+}
+function switchLang(lang) {
+if (hasLangUrl) {
+safeSet("merkoslux-lang", lang);
+location.href = langUrl(lang);
+return;
+}
+setLang(lang);
+}
+/* Impressum und Datenschutz: Links zurück führen in die gewählte Sprache */
+function localizeLinks(lang) {
+var prefix = lang === "de" ? "" : "/" + lang;
+document.querySelectorAll('a[href^="/"]').forEach(function (a) {
+var base = a.getAttribute("href").replace(/^\/(fr|lb|en)(\/|$)/, "/");
+if (/^\/(leistungen|ueber-uns|kontakt)?(\.html)?(#|$)/.test(base)) a.setAttribute("href", prefix + base);
+});
+}
+
+function detectLang() {
+var q = new URLSearchParams(location.search).get("lang");
+if (hasLangUrl) {
+if (q && LANGS.indexOf(q) !== -1 && q !== urlLang()) location.replace(langUrl(q));
+return urlLang();
+}
+if (q && LANGS.indexOf(q) !== -1) return q;
     var saved = safeGet("merkoslux-lang");
     if (saved && LANGS.indexOf(saved) !== -1) return saved;
     /* Standard ist immer Deutsch – keine automatische Umstellung nach Browsersprache
@@ -92,7 +125,7 @@
   var lfx = null, lfxBusy = false;
   function langFx(lang) {
     var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce || lfxBusy) { setLang(lang); return; }
+    if (reduce || lfxBusy) { switchLang(lang); return; }
     if (!lfx) {
       lfx = document.createElement("div");
       lfx.className = "lang-fx"; lfx.setAttribute("aria-hidden", "true");
@@ -103,7 +136,7 @@
     lfx.querySelector(".lf-code").textContent = lang.toUpperCase();
     lfx.querySelector(".lf-msg").textContent = LANG_MSG[lang] || LANG_MSG.de;
     lfx.classList.remove("out"); void lfx.offsetWidth; lfx.classList.add("on");
-    setTimeout(function () { setLang(lang); }, 520);
+    setTimeout(function () { switchLang(lang); }, 520);
     setTimeout(function () { lfx.classList.add("out"); }, 1050);
     setTimeout(function () { lfx.classList.remove("on", "out"); lfxBusy = false; }, 1600);
   }
